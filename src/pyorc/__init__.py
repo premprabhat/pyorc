@@ -14,6 +14,6 @@ from .errors import *
 from .reader import Column, Reader, Stripe
 from .writer import Writer
 from .typedescription import *
+from .predicates import PredicateColumn
 
-
-__version__ = "0.4.0"
+__version__ = "0.5.0"
