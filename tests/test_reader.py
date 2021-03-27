@@ -427,6 +427,14 @@ def test_bytes_lengths():
     assert reader.bytes_lengths["stripe_statistics_length"] == 21
 
 
+def test_wrong_predicate():
+    data = io.BytesIO()
+    with Writer(data, "struct<c0:int,c1:string>", row_index_stride=100) as writer:
+        writer.writerows((i, "Even") if i % 2 == 0 else (i, "Odd") for i in range(1000))
+    data.seek(0)
+    with pytest.raises(TypeError):
+        reader = Reader(data, predicate="wrong")
+
 def test_empty_predicate_result():
     data = io.BytesIO()
     with Writer(data, "struct<c0:int,c1:string>", row_index_stride=100) as writer:
