@@ -64,6 +64,7 @@ TESTDATA = [
     (Double(), TypeKind.DOUBLE, "double"),
     (Date(), TypeKind.DATE, "date"),
     (Timestamp(), TypeKind.TIMESTAMP, "timestamp"),
+    (TimestampInstant(), TypeKind.TIMESTAMP, "timestamp with local timezone"),
     (String(), TypeKind.STRING, "string"),
     (Binary(), TypeKind.BINARY, "binary"),
     (Decimal(precision=10, scale=3), TypeKind.DECIMAL, "decimal(10,3)"),

@@ -83,6 +83,11 @@ class Timestamp(TypeDescription):
     kind = TypeKind.TIMESTAMP
 
 
+class TimestampInstant(TypeDescription):
+    name = "timestamp with local timezone"
+    kind = TypeKind.TIMESTAMP
+
+
 class Date(TypeDescription):
     name = "date"
     kind = TypeKind.DATE

@@ -31,6 +31,8 @@ createTypeDescription(const orc::Type& orcType)
             return typeModule.attr("Binary")();
         case orc::TIMESTAMP:
             return typeModule.attr("Timestamp")();
+        case orc::TIMESTAMP_INSTANT:
+            return typeModule.attr("TimestampInstant")();
         case orc::DATE:
             return typeModule.attr("Date")();
         case orc::CHAR:
@@ -251,7 +253,8 @@ ORCFileLikeObject::buildStatistics(const orc::Type* type,
             }
             return result;
         }
-        case orc::TIMESTAMP: {
+        case orc::TIMESTAMP:
+        case orc::TIMESTAMP_INSTANT: {
             auto* timeStat = dynamic_cast<const orc::TimestampColumnStatistics*>(stats);
             if (timeStat->hasMinimum()) {
                 result["minimum"] = convertTimestampMillis(timeStat->getMinimum());
