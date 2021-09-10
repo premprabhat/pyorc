@@ -170,8 +170,6 @@ stages:
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: wheels
-  - stage: Build
-  jobs:
   - job: manylinux_aarch64_wheels
     pool:
       vmImage: "ubuntu-latest"
